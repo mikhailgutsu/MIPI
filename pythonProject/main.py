@@ -1,54 +1,28 @@
-# Создаем класс "Животное"
-class Animal:
-    # Конструктор класса, инициализирует объекты класса
-    def __init__(self, name, age):
-        self.name = name  # Имя животного
-        self.age = age    # Возраст животного
+def __menu():
+    print("1.   Information")
+    print("2.   Credits")
+    print("3.   Exit")
 
-    # Метод для вывода информации о животном
-    def display_info(self):
-        print(f"Имя: {self.name}, Возраст: {self.age}")
+def __infoPath():
 
+def handle_choice(choice):
+    if choice == '1':
+        __infoPath()
 
-# Создаем подкласс "Собака", который наследует от класса "Животное"
-class Dog(Animal):
-    # Конструктор подкласса, дополнительно инициализирует породу собаки
-    def __init__(self, name, age, breed):
-        # Вызов конструктора родительского класса для инициализации имени и возраста
-        super().__init__(name, age)
-        self.breed = breed  # Порода собаки
+    elif choice == '2':
+        print("Credits... ")
 
-    # Метод для вывода информации о собаке, переопределенный из родительского класса
-    def display_info(self):
-        print(f"Имя: {self.name}, Возраст: {self.age}, Порода: {self.breed}")
+    elif choice == '3':
+        print("See you... ")
 
-
-# Создаем экземпляры классов и вызываем их методы
-def main():
-    # Создаем объекты класса "Animal"
-    animal1 = Animal("Кот", 3)
-    animal2 = Animal("Попугай", 1)
-
-    # Выводим информацию о животных
-    print("Информация о животных:")
-    animal1.display_info()
-    animal2.display_info()
-    print()
-
-    # Создаем объекты класса "Dog"
-    dog1 = Dog("Шарик", 2, "Дворняга")
-    dog2 = Dog("Бобик", 4, "Овчарка")
-
-    # Выводим информацию о собаках
-    print("Информация о собаках:")
-    dog1.display_info()
-    dog2.display_info()
-
+    else:
+        print("1..3")
 
 if __name__ == "__main__":
-    main()
+    while True:
+        __menu()
 
-#Этот код демонстрирует основные принципы ООП:
-#Инкапсуляция: Переменные name, age, и breed являются членами классов Animal и Dog, и они инкапсулированы внутри классов. Методы display_info() являются интерфейсами доступа к этим данным.
-#Наследование: Класс Dog наследует от класса Animal, что позволяет собакам использовать все атрибуты и методы класса Animal, а также определять свои собственные атрибуты и методы.
-#Полиморфизм: Метод display_info() в классе Dog переопределяет метод с тем же именем в классе Animal, что позволяет объектам Dog предоставлять свою собственную реализацию этого метода.
+        user_choice = input(">> ")
+        handle_choice(user_choice)
+        if user_choice == '3':
+            break
